@@ -5,18 +5,30 @@ import Letters from "./components/Letters";
 import {useState} from "react";
 import EndGame from "./components/EndGame";
 import {generateLetterStatuses} from "./components/LettersInitializer";
+import {fetchRandomWord} from "./components/RandomWordApi";
 
 function App() {
     const [letterStatus, setLetterStatus] = useState(generateLetterStatuses());
     const [score, setScore] = useState(0);
     const [solution, setSolution] = useState({
-        word: "BABE",
-        hint: "Hint for the word"
+        word: "",
+        hint: ""
     });
+
+    const fetchInitialWord = () => {
+        fetchRandomWord()
+            .then((newSolution) => {
+                setSolution(newSolution);
+            })
+            .catch((error) => {
+                console.error("Error setting initial solution:", error);
+            });
+    };
 
     const handlePlayAgain = () => {
         setLetterStatus(generateLetterStatuses());
         setScore(0);
+        fetchInitialWord();
     };
 
     const selectLetter = (letter) => {
@@ -27,16 +39,24 @@ function App() {
 
         const scoreChange = solution.word.includes(letter) ? 20 : -20;
 
-        setScore(score => score + scoreChange);
+        setScore((score) => score + scoreChange);
     };
+
+    if (!solution.word) {
+        fetchInitialWord();
+    }
 
     return (
         <div className = "App">
             <Score score = {score}/>
             <Solution solution = {solution} letterStatus = {letterStatus}/>
             <Letters letterStatus = {letterStatus} onLetterClick = {selectLetter}/>
-            <EndGame score = {score} solution = {solution} letterStatus = {letterStatus}
-                     onPlayAgain = {handlePlayAgain}/>
+            <EndGame
+                score = {score}
+                solution = {solution}
+                letterStatus = {letterStatus}
+                onPlayAgain = {handlePlayAgain}
+            />
         </div>
     );
 }
