@@ -20,15 +20,15 @@ function App() {
         hint: "Hint for the word"
     });
 
-    const handleLetterClick = (letter) => {
+    const selectLetter = (letter) => {
         if (solution.word.includes(letter)) {
-            const updatedLetterStatus = { ...letterStatus };
+            const updatedLetterStatus = {...letterStatus};
             updatedLetterStatus[letter] = true;
             setLetterStatus(updatedLetterStatus);
 
-            setScore(score + 5);
+            setScore(score + 20);
         } else {
-            const updatedLetterStatus = { ...letterStatus };
+            const updatedLetterStatus = {...letterStatus};
             updatedLetterStatus[letter] = true;
             setLetterStatus(updatedLetterStatus);
 
@@ -39,7 +39,7 @@ function App() {
         <div className = "App">
             <Score score = {score}/>
             <Solution solution = {solution} letterStatus = {letterStatus}/>
-            <Letters letterStatus = {letterStatus} onLetterClick = {handleLetterClick}/>
+            <Letters letterStatus = {letterStatus} onLetterClick = {selectLetter}/>
         </div>
     );
 }
