@@ -1,11 +1,12 @@
 import Letter from "./Letter";
 
-const Letters = ({letterStatus}) => {
+const Letters = ({letterStatus, onLetterClick}) => {
     return (
         <div>
             <div>Available letters</div>
             {Object.keys(letterStatus).map((letter) => (
-                <Letter key = {letter} letter = {letter} letterStatus = {letterStatus[letter]}/>
+                <Letter key = {letter} letter = {letter} letterStatus = {letterStatus[letter]}
+                        onClick = {onLetterClick}/>
             ))}
         </div>
     );

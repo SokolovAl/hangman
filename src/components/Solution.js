@@ -16,8 +16,7 @@ const Solution = ({solution, letterStatus}) => {
             </div>
             <br/>
         </div>
-    )
-        ;
+    );
 };
 
 export default Solution;
