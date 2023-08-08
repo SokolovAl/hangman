@@ -20,20 +20,16 @@ function App() {
     };
 
     const selectLetter = (letter) => {
-        if (solution.word.includes(letter)) {
-            const updatedLetterStatus = {...letterStatus};
-            updatedLetterStatus[letter] = true;
-            setLetterStatus(updatedLetterStatus);
+        const updatedLetterStatus = {...letterStatus};
+        updatedLetterStatus[letter] = true;
 
-            setScore(score + 20);
-        } else {
-            const updatedLetterStatus = {...letterStatus};
-            updatedLetterStatus[letter] = true;
-            setLetterStatus(updatedLetterStatus);
+        setLetterStatus(updatedLetterStatus);
 
-            setScore(score - 20);
-        }
+        const scoreChange = solution.word.includes(letter) ? 20 : -20;
+
+        setScore(score => score + scoreChange);
     };
+
     return (
         <div className = "App">
             <Score score = {score}/>
