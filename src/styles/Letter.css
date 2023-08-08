@@ -8,8 +8,12 @@
 .selected {
     text-decoration: line-through;
     color: green;
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 .unselected {
+    background-color: #f2f2f2;
     color: black;
 }

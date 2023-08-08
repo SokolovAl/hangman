@@ -10,7 +10,7 @@ function App() {
     const [letterStatus, setLetterStatus] = useState(generateLetterStatuses());
     const [score, setScore] = useState(0);
     const [solution, setSolution] = useState({
-        word: "BYTES",
+        word: "BABE",
         hint: "Hint for the word"
     });
 
