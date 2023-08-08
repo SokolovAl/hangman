@@ -1,7 +1,7 @@
 import "../Score.css";
 
 const Score = ({score}) => {
-    let scoreClass = "";
+    let scoreClass;
     if (score >= 80) {
         scoreClass = "high-score";
     } else if (score >= 50) {
