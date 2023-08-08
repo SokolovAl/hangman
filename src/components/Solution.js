@@ -1,21 +1,23 @@
-const Solution = () => {
+import Letter from "./Letter";
+
+const Solution = ({solution, letterStatus}) => {
     return (
         <div>
             <div>
-                <span>_ </span>
-                <span>_ </span>
-                <span>_ </span>
-                <span>_ </span>
+                {solution.word.split("").map((letter, index) => (
+                    <Letter key = {index} status = {letterStatus[letter] ? letter : "_"}/>
+                ))}
             </div>
             <br/>
             <div>
                 <em>
-                    Hint
+                    {solution.hint}
                 </em>
             </div>
             <br/>
         </div>
-    );
+    )
+        ;
 };
 
 export default Solution;

@@ -1,10 +1,12 @@
 import Letter from "./Letter";
 
-const Letters = () => {
+const Letters = ({letterStatus}) => {
     return (
         <div>
             <div>Available letters</div>
-            <Letter/>
+            {Object.keys(letterStatus).map((letter) => (
+                <Letter key = {letter} status = {letterStatus[letter] ? "-" : letter}/>
+            ))}
         </div>
     );
 };
