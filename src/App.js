@@ -33,8 +33,8 @@ function App() {
         setLetterStatus(generateLetterStatuses());
         setScore(0);
         fetchInitialWord();
-
     };
+
     const selectLetter = (letter) => {
         setLetterStatus((prevLetterStatus) => ({
             ...prevLetterStatus,
