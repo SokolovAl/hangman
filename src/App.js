@@ -4,16 +4,9 @@ import Solution from "./components/Solution";
 import Letters from "./components/Letters";
 import {useState} from "react";
 import EndGame from "./components/EndGame";
+import {generateLetterStatuses} from "./components/LettersInitializer";
 
 function App() {
-    const generateLetterStatuses = () => {
-        let letterStatus = {};
-        for (let i = 65; i < 91; i++) {
-            letterStatus[String.fromCharCode(i)] = false;
-        }
-        return letterStatus;
-    };
-
     const [letterStatus, setLetterStatus] = useState(generateLetterStatuses());
     const [score, setScore] = useState(0);
     const [solution, setSolution] = useState({
