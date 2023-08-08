@@ -1,10 +1,8 @@
-.letters-container {
-    margin-top: 20px;
-}
-
 .letter {
-    margin-right: 5px;
-    font-size: 1.2em;
+    padding: 10px;
+    margin: 5px;
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 .selected {
