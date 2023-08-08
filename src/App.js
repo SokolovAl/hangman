@@ -25,38 +25,34 @@ function App() {
             });
     };
 
+    if (!solution.word) {
+        fetchInitialWord();
+    }
+
     const handlePlayAgain = () => {
         setLetterStatus(generateLetterStatuses());
         setScore(0);
         fetchInitialWord();
-    };
 
+    };
     const selectLetter = (letter) => {
         setLetterStatus((prevLetterStatus) => ({
             ...prevLetterStatus,
             [letter]: true
         }));
-
         setScore((prevScore) =>
             prevScore + (solution.word.includes(letter) ? 20 : -20)
         );
-    };
 
-    if (!solution.word) {
-        fetchInitialWord();
-    }
+    };
 
     return (
         <div className = "App">
             <Score score = {score}/>
             <Solution solution = {solution} letterStatus = {letterStatus}/>
             <Letters letterStatus = {letterStatus} onLetterClick = {selectLetter}/>
-            <EndGame
-                score = {score}
-                solution = {solution}
-                letterStatus = {letterStatus}
-                onPlayAgain = {handlePlayAgain}
-            />
+            <EndGame score = {score} solution = {solution} letterStatus = {letterStatus}
+                     onPlayAgain = {handlePlayAgain}/>
         </div>
     );
 }
