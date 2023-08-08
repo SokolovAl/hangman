@@ -1,4 +1,4 @@
-import "../Letter.css";
+import "../styles/Letter.css";
 
 const Letter = ({letter, letterStatus, solutionStatus, onClick}) => {
     const letterStyle = letterStatus ? "selected" : "unselected";
