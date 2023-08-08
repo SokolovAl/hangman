@@ -1,9 +1,17 @@
-.letter {
-    display: inline-block;
-    margin: 0.2rem;
-    font-size: 1.2rem;
+.letters-container {
+    margin-top: 20px;
 }
 
-.crossed-out {
+.letter {
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+.selected {
     text-decoration: line-through;
+    color: green;
+}
+
+.unselected {
+    color: black;
 }

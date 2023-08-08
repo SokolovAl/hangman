@@ -5,7 +5,7 @@ const Solution = ({solution, letterStatus}) => {
         <div>
             <div>
                 {solution.word.split("").map((letter, index) => (
-                    <Letter key = {index} status = {letterStatus[letter] ? letter : "_"}/>
+                    <Letter key = {index} solutionStatus = {letterStatus[letter] ? letter : "_"}/>
                 ))}
             </div>
             <br/>

@@ -1,8 +1,9 @@
 import "../Letter.css";
 
-const Letter = ({letter, status}) => {
+const Letter = ({letter, letterStatus, solutionStatus}) => {
+    const letterStyle = letterStatus ? 'selected' : 'unselected';
 
-    return <span key={letter}>{letter}{status}</span>;
+    return <span className={`letter ${letterStyle}`}>{letter}{solutionStatus}</span>;
 };
 
 export default Letter;
