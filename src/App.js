@@ -3,6 +3,7 @@ import Score from "./components/Score";
 import Solution from "./components/Solution";
 import Letters from "./components/Letters";
 import {useState} from "react";
+import EndGame from "./components/EndGame";
 
 function App() {
     const generateLetterStatuses = () => {
@@ -19,6 +20,11 @@ function App() {
         word: "BYTES",
         hint: "Hint for the word"
     });
+
+    const handlePlayAgain = () => {
+        setLetterStatus(generateLetterStatuses());
+        setScore(0);
+    };
 
     const selectLetter = (letter) => {
         if (solution.word.includes(letter)) {
@@ -40,6 +46,8 @@ function App() {
             <Score score = {score}/>
             <Solution solution = {solution} letterStatus = {letterStatus}/>
             <Letters letterStatus = {letterStatus} onLetterClick = {selectLetter}/>
+            <EndGame score = {score} solution = {solution} letterStatus = {letterStatus}
+                     onPlayAgain = {handlePlayAgain}/>
         </div>
     );
 }
