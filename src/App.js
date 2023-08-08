@@ -32,14 +32,14 @@ function App() {
     };
 
     const selectLetter = (letter) => {
-        const updatedLetterStatus = {...letterStatus};
-        updatedLetterStatus[letter] = true;
+        setLetterStatus((prevLetterStatus) => ({
+            ...prevLetterStatus,
+            [letter]: true
+        }));
 
-        setLetterStatus(updatedLetterStatus);
-
-        const scoreChange = solution.word.includes(letter) ? 20 : -20;
-
-        setScore((score) => score + scoreChange);
+        setScore((prevScore) =>
+            prevScore + (solution.word.includes(letter) ? 20 : -20)
+        );
     };
 
     if (!solution.word) {
